@@ -1,0 +1,14 @@
+{
+  "name": "expense-splitter-monorepo",
+  "version": "1.0.0",
+  "description": "Master coordinator for full-stack expense splitter",
+  "main": "index.js",
+  "scripts": {
+    "backend": "cd backend && node server.js",
+    "frontend": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

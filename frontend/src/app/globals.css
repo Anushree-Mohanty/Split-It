@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Light mode base ─────────────────────────── */
+:root {
+  --fg: #111827;
+}
+
+body {
+  background: linear-gradient(135deg, #d1fae5 0%, #f0fdf4 40%, #ecfdf5 70%, #d1fae5 100%);
+  background-attachment: fixed;
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ── Dark mode: rich gradient background (Image 1) ── */
+.dark body {
+  background: linear-gradient(145deg, #1c0e04 0%, #100802 45%, #080404 100%);
+  min-height: 100vh;
+}
+
+/* ── Glassmorphism utility (dark mode cards) ── */
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+  .glass-hover {
+    @apply hover:bg-white/8 transition-colors;
+  }
+}
+
+/* ── Native <select> option fix ── */
+/* Browser renders option dropdowns with system colors; without explicit overrides
+   dark:text-white bleeds into options making them white-on-white (invisible). */
+option {
+  background-color: #ffffff;
+  color: #111827;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+.dark ::-webkit-scrollbar-thumb { background: #374151; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
